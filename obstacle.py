@@ -2,7 +2,7 @@ import pygame, sys
 from pygame.locals import *
 from random import randrange
 
-class obstacle:
+class Obstacle:
     def __init__(self,param,type=1):# list image et l'obstacle est choisie a l'aleatoire
         self.param = param
         self.x = param.width - 10
@@ -16,8 +16,8 @@ class obstacle:
         if self.x < 0 :
            self.out = True
 
-class obstacleGenerator :
-    def __init__(self,param,max=2,minDist=210):
+class ObstacleGenerator :
+    def __init__(self,param,minDist=210,max=2):
         self.param = param
         self.obstacleBuffer = []
         self.maxObstacles = max
