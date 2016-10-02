@@ -2,7 +2,7 @@ import pygame, sys
 from pygame.locals import *
 
 
-class rock:
+class Rock:
     """
     This class manage the animation of the rock
     """
