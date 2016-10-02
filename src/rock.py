@@ -2,11 +2,11 @@ import pygame, sys
 from pygame.locals import *
 
 
-class rock:
+class Rock:
     """
     This class manage the animation of the rock
     """
-    def __init__(self, param, l):
+    def __init__(self, param):
         """
         Args:
             param(parameters.param): An instance from parameters.param class, used to configure the rock's behavior.

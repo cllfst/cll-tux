@@ -27,7 +27,7 @@ class ObstacleGenerator :
 
     def addObstacle(self):
         obstacleType = randrange(1,4)
-        obstacleObject = obstacle(self.param,obstacleType)
+        obstacleObject = Obstacle(self.param,obstacleType)
         self.obstacleBuffer.append(obstacleObject)
     def randomize(self):
         #print len(self.obstacleBuffer)
