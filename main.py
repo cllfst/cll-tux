@@ -2,13 +2,14 @@ import pygame, sys
 from pygame.locals import *
 from parametres import *
 from test import *
-from man import *
+#from man import *
 from obstacle import *
 from rock import *
-from backgroun import *
+#from backgroun import *
+
 
 pygame.init()#should be called to initialise
-para = param()
+para = Param()
 obstacle = obstacleGenerator(para)
 rock=rock(para)
 DISPLAYSURF = pygame.display.set_mode((para.width, para.hight))#setting the surface and size of window must be a "tuple"=>((,))
