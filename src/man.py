@@ -1,12 +1,21 @@
+"""
+This module aims to manage the tux behavior.
+"""
 import pygame, sys
 from pygame.locals import *
+
 
 class Man:
 
     def __init__(self,param):
+        """
+            Args:
+                param(param): An instance from parameters.param class, used to configure the tux's behavior.
+        """
         self.x=param.posTux[0]#-taille tux a modifie
         self.posy=param.posy-100
         self.y=self.posy
+
         self.param=param
         #  Walking motion list
         self.pingImgWalk = [
@@ -35,9 +44,6 @@ class Man:
         ]
 
         self.hero = self.pingImgWalk[0]
-
-
-
         self.die = False
         self.hurt = False
         self.jump = False
@@ -47,6 +53,7 @@ class Man:
         #indestructible = False
 
     def getEvent(self,event):
+
 
         if event.type == KEYDOWN:
             if event.key == K_UP:

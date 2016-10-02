@@ -20,9 +20,11 @@ testo = Tester("./cllfst.png",para)
 #testo.backgroundsound()
 
 while True: # main game loop
+
     for event in pygame.event.get():#event get returns a list of events
         #testo.getEvent(event)
         tux.getEvent(event)
+
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
