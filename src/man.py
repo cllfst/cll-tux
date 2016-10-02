@@ -1,8 +1,16 @@
+"""
+This module aims to manage the tux behavior.
+"""
 import pygame, sys
 from pygame.locals import *
 
+
 class Man:
-    def __init__(self,param):
+    def __init__(self, param):
+        """
+        Args:
+            param(param): An instance from parameters.param class, used to configure the tux's behavior.
+        """
         self.param=param
     #  Walking motion list
         self.pingImgWalk = [
@@ -32,10 +40,6 @@ class Man:
 
             #  Postionning of the man
             position = (350, 100)
-
-
-
-
             hero = self.pingImgWalk[0]
             DISPLAYSURF.blit(hero, (100, 100))
             position_hero = hero.get_rect(center=(position[0], 300))
@@ -128,7 +132,6 @@ class Man:
         position_obstacle.left += -1
     if position_obstacle.right == 0 :
         position_obstacle.left = 656
-
 
     #refresh positions
     DISPLAYSURF.blit(BACKGROUND, (0, 0))

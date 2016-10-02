@@ -18,7 +18,7 @@ testo = tester("./cllfst.png",para)
 testo.backgroundsound()
 
 while True: # main game loop
-    for event in pygame.event.get():#event get returns a list of events
+    for event in pygame.event.get():  # event get returns a list of events
         testo.getEvent(event)
         if event.type == QUIT:
             pygame.quit()
