@@ -26,6 +26,7 @@ clock = pygame.time.Clock()
 #testo.backgroundsound()
 while True:
     #construire object in he while to initialise
+    para = Param()
     b1 = Background1(para)
     b2 = Background2(para)
     b3 = Background3(para)

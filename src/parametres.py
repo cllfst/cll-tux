@@ -5,6 +5,9 @@ from sound import *
 class Param:
 
     def __init__(self):
+        self.combo = 0
+        self.comboMax = 10
+        self.score = 0
         self.obsCount =  0
         self.vitesse = 8
         self.vitesseMax = 40

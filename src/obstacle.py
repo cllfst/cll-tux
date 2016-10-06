@@ -2,7 +2,7 @@ import pygame, sys
 from pygame.locals import *
 from random import randrange
 
-
+#accelerates the game and count score base on obstacles
 class Obstacle:
 
     def __init__(self,param,type=1):# list image et l'obstacle est choisie a l'aleatoire
@@ -45,8 +45,8 @@ class ObstacleGenerator :
         #print '-%d' % (self.param.width -self.randomDistance)
         if (self.obstacleBuffer[-1].x < (self.param.width -self.randomDistance)):
             self.addObstacle()
-            if self.param.vitesse < self.param.vitesseMax: 
-                self.param.accelerate(1)
+            if self.param.vitesse < self.param.vitesseMax:
+                self.param.accelerate(0.5)
             self.randomDistance = randrange(self.minDistance,self.param.width)
 
     def animateObstacles(self, screen):
@@ -54,6 +54,12 @@ class ObstacleGenerator :
         if self.obstacleBuffer[0].out :
             del self.obstacleBuffer[0]
             self.param.obsCount+=1
+            if self.param.obsCount < self.param.comboMax:
+                self.param.combo = self.param.obsCount
+                self.param.score += self.param.combo
+            else:
+                self.param.combo = self.param.comboMax
+                self.param.score += self.param.combo
         for obs in self.obstacleBuffer :
             obs.animate(screen)
         # print self.randomDistance
