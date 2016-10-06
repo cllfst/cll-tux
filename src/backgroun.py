@@ -18,11 +18,11 @@ class Background1:#far background
 	       screen.blit(self.img,(self.x,self.y))
 
 
+
 class Background2:#closee background
     """
     this class manage the closer background (the montain)
     """
-
     def __init__(self,param):
         self.param=param
         self.x = 0
@@ -37,7 +37,6 @@ class Background2:#closee background
     		self.x=0
     def affichebgDie(self,screen):
         screen.blit(self.img,(self.x,self.y))
-
 
 class Background3:#runway background
 

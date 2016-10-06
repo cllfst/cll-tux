@@ -1,7 +1,6 @@
 # make object parametres
 from sound import *
 
-
 class Param:
     """
     This class define parameters of the application
