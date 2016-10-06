@@ -1,9 +1,10 @@
 # make object parametres
 from sound import *
 
-
 class Param:
-
+    """
+    This class define parameters of the application
+    """
     def __init__(self):
         self.combo = 0
         self.comboMax = 10
@@ -23,5 +24,11 @@ class Param:
         self.sound = Sound()
 
     def accelerate(self,aug):
+        """
+            manage the speed of the game
+
+            Args:
+                aug (float) : the chosen speed
+        """
         self.vitesse += aug
         self.framNbPerJump = self.jumpDist/self.vitesse

@@ -2,9 +2,11 @@ import pygame, sys
 from pygame.locals import *
 from random import randrange
 
-#accelerates the game and count score base on obstacles
+#accelerates the game and count score based on obstacles
 class Obstacle:
-
+    """
+    This class aims to accelerate the game and count score based on obstacles
+    """
     def __init__(self,param,type=1):# list image et l'obstacle est choisie a l'aleatoire
         self.param = param
         self.x = param.width + 50

@@ -53,6 +53,9 @@ class Rock:
         screen.blit(pygame.transform.rotate(self.rockImg, self.angle), (self.rockx, self.rocky))
 
     def animationDie(self, screen):
+
+        """this method manage the animation of the snow ball when the game is over(loss)
+        """
         self.rockx += self.param.vitesse
         self.angle-=self.param.vitesse/2
         screen.blit(pygame.transform.rotate(self.rockImg, self.angle), (self.rockx, self.rocky))

@@ -16,7 +16,9 @@ Welcome to cll-tux's documentation!
    obstacle
    parametres
    rock
-
+   sound
+   test
+   text
 
 Indices and tables
 ==================
@@ -24,4 +26,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
