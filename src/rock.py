@@ -43,7 +43,7 @@ class Rock:
         self.angle-=self.param.vitesse/2
         # screen.blit(self.rockImg,(self.rockx,self.rocky))
 
-        if self.i == 30 and self.taille<200 :
+        if self.i == 30 and self.taille<300 :
             self.rockx -= 1.5
             self.rocky -= 3
             self.i=0

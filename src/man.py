@@ -92,22 +92,16 @@ class Man:
                     self.hero_moving_counter += 1
                     if self.hero_moving_counter < self.param.framNbPerJump/7:
                         self.hero = self.pingImgJump[0]
-                        #if self.hero_moving_counter % self.param.vitesse == 0:
                         self.y -= self.param.vitesse
-
                     elif self.hero_moving_counter <= self.param.framNbPerJump/2 :
                         self.hero = self.pingImgJump[1]
-                        #if self.hero_moving_counter == 300 and self.hero_moving_counter > 100:
                         self.y -= self.param.vitesse
-                        #if self.hero_moving_counter == 500:
-                        #    self.y += -20
-
                     else :
                         self.hero = self.pingImgJump[2]
-                        #if self.hero_moving_counter == 800:
-                        self.y += self.param.vitesse
-                        #if self.hero_moving_counter == 1000:
-                            #self.y += self.param.vitesse
+                        if self.y + self.param.vitesse < self.param.posy :
+                            self.y += self.param.vitesse
+                        else:
+                            self.y = self.param.posy
 
                     if self.hero_moving_counter >= self.param.framNbPerJump :
                         self.hero = self.pingImgWalk[self.img_walk_counter%4]

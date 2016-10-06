@@ -7,6 +7,7 @@ from obstacle import *
 from rock import *
 from backgroun import *
 from sound import *
+from text import *
 
 
 #mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=4096)
@@ -27,6 +28,7 @@ clock = pygame.time.Clock()
 while True:
     #construire object in he while to initialise
     para = Param()
+    text = Text(para)
     b1 = Background1(para)
     b2 = Background2(para)
     b3 = Background3(para)
@@ -51,6 +53,8 @@ while True:
         b1.affichebg(DISPLAYSURF)
         b2.affichebg(DISPLAYSURF)
         b3.affichebg(DISPLAYSURF)
+        text.scorea(DISPLAYSURF)
+        text.comboa(DISPLAYSURF)
         #testo.background(DISPLAYSURF)
         die=tux.collision(obstacle.getObst())
         obstacle.animateObstacles(DISPLAYSURF)
@@ -73,6 +77,9 @@ while True:
         b1.affichebg(DISPLAYSURF)
         b2.affichebgDie(DISPLAYSURF)
         b3.affichebgDie(DISPLAYSURF)
+        text.gameovera(DISPLAYSURF)
+        text.scorea(DISPLAYSURF)
+        text.comboa(DISPLAYSURF)
         tux.animate(DISPLAYSURF)
         rock.animationDie(DISPLAYSURF)
         pygame.display.update()

@@ -14,7 +14,7 @@ class Param:
         self.posy = 500
         self.width = 1100
         self.hight = 600
-        self.posTux = (120,230)
+        self.posTux = (150,230)
         self.jumpDist = 370
         self.framNbPerJump = self.jumpDist/self.vitesse
         self.tailleObs = 100

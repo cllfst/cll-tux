@@ -16,7 +16,7 @@ class Sound:
 
     def jumps(self):
         self.jump = pygame.mixer.Sound('Jump.mp3')
-        self.jump.play(0)
+        self.jump.play()
 
 
 class BgSound:
