@@ -45,7 +45,7 @@ class ObstacleGenerator :
         #print '-%d' % (self.param.width -self.randomDistance)
         if (self.obstacleBuffer[-1].x < (self.param.width -self.randomDistance)):
             self.addObstacle()
-            if self.param.vitesse<30:
+            if self.param.vitesse < self.param.vitesseMax: 
                 self.param.accelerate(1)
             self.randomDistance = randrange(self.minDistance,self.param.width)
 

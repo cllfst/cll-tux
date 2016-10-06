@@ -7,6 +7,7 @@ class Param:
     def __init__(self):
         self.obsCount =  0
         self.vitesse = 8
+        self.vitesseMax = 40
         self.posy = 500
         self.width = 1100
         self.hight = 600

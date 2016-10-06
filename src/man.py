@@ -84,10 +84,10 @@ class Man:
                     self.x += self.param.vitesse/2
                 if self.jump == False :  # walk
                     self.hero_moving_counter += 1
-                    if self.hero_moving_counter >= (32-self.param.vitesse)/4:
+                    if self.hero_moving_counter >= (self.param.vitesseMax + 4 -self.param.vitesse)/4:
                         self.hero_moving_counter = 0
-                        self.hero = self.pingImgWalk[self.img_walk_counter%4]
                         self.img_walk_counter += 1
+                        self.hero = self.pingImgWalk[self.img_walk_counter%4]
                 else :  # self.jump == True
                     self.hero_moving_counter += 1
                     if self.hero_moving_counter < self.param.framNbPerJump/7:
