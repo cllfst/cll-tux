@@ -2,21 +2,30 @@ import pygame, sys
 from pygame.locals import *
 from random import randrange
 
+
 class Obstacle:
+
     def __init__(self,param,type=1):# list image et l'obstacle est choisie a l'aleatoire
         self.param = param
-        self.x = param.width - 10
-        self.y = param.hight - 20
-        self.rec = Rect(self.x,self.y, 10, 20)
+        self.x = param.width + 50
+        self.y = param.posy - 70
+        if type == 1 :
+            self.img=pygame.image.load("img/obf1.png")
+        elif type == 2 :
+            self.img=pygame.image.load("img/obf2.png")
+        elif type == 3 :
+            self.img=pygame.image.load("img/obf3.png")
+        self.img=pygame.transform.scale(self.img, (param.tailleObs-30, param.tailleObs))
         self.out = False
+
     def animate(self,screen):
         self.x -= self.param.vitesse
-        self.rec = Rect(self.x,self.y, 10, 20)
-        pygame.draw.rect(screen, 0, self.rec)
+        screen.blit(self.img,(self.x,self.y))
         if self.x < 0 :
            self.out = True
 
 class ObstacleGenerator :
+
     def __init__(self,param,minDist=210,max=2):
         self.param = param
         self.obstacleBuffer = []
@@ -29,17 +38,25 @@ class ObstacleGenerator :
         obstacleType = randrange(1,4)
         obstacleObject = Obstacle(self.param,obstacleType)
         self.obstacleBuffer.append(obstacleObject)
+
     def randomize(self):
         #print len(self.obstacleBuffer)
         #print self.obstacleBuffer[-1].x
         #print '-%d' % (self.param.width -self.randomDistance)
         if (self.obstacleBuffer[-1].x < (self.param.width -self.randomDistance)):
             self.addObstacle()
+            if self.param.vitesse<30:
+                self.param.accelerate(1)
             self.randomDistance = randrange(self.minDistance,self.param.width)
-    def animateObstacles(self,screen):
+
+    def animateObstacles(self, screen):
         self.randomize()
         if self.obstacleBuffer[0].out :
             del self.obstacleBuffer[0]
+            self.param.obsCount+=1
         for obs in self.obstacleBuffer :
             obs.animate(screen)
-        print self.randomDistance
+        # print self.randomDistance
+
+    def getObst(self):
+        return self.obstacleBuffer[0]
