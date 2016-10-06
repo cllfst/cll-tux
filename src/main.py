@@ -23,8 +23,8 @@ para = Param()
 DISPLAYSURF = pygame.display.set_mode((para.width, para.hight))# setting the surface and size of window must be a "tuple"=>((,))
 pygame.display.set_caption('CLL TUX,running for freedom!')#title of window
 clock = pygame.time.Clock()
-#testo = Tester("./cllfst.png",para)
-#testo.backgroundsound()
+testo = Tester("./cllfst.png",para)
+highscore = 0
 while True:
     #construire object in he while to initialise
     para = Param()
@@ -32,16 +32,31 @@ while True:
     b1 = Background1(para)
     b2 = Background2(para)
     b3 = Background3(para)
-    obstacle = ObstacleGenerator(para,para.jumpDist)
+    obstacle = ObstacleGenerator(para, para.jumpDist)
     rock=Rock(para)
     tux=Man(para)
-    bgsong.playBgSong()
     die = False
     restart = False
+    start = False
+    bgsong.playStartSong()
+    while start == False:
+        for event in pygame.event.get():
+            if event.type == KEYDOWN:
+                start = True
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+        testo.background(DISPLAYSURF)
+        text.starta(DISPLAYSURF)
+        testo.animate(DISPLAYSURF)
+        pygame.display.update()
+        clock.tick(30)
+
+    bgsong.playBgSong()
+
     while die == False and restart == False: # main game loop
 
         for event in pygame.event.get():#event get returns a list of events
-            #testo.getEvent(event)
             tux.getEvent(event)
             if event.type == KEYDOWN:
                 if event.key == K_r:
@@ -55,17 +70,20 @@ while True:
         b3.affichebg(DISPLAYSURF)
         text.scorea(DISPLAYSURF)
         text.comboa(DISPLAYSURF)
-        #testo.background(DISPLAYSURF)
         die=tux.collision(obstacle.getObst())
         obstacle.animateObstacles(DISPLAYSURF)
         rock.animation(DISPLAYSURF)
-        #testo.animate(DISPLAYSURF)
         tux.animate(DISPLAYSURF)
         pygame.display.update()
         clock.tick(30)
 
-    bgsong.stopBgSong()
-
+    bgsong.stopSong()
+    if para.score > highscore:
+        bgsong.playGameOverHS()
+        highscore = para.score
+        para.newHS = True
+    else:
+        bgsong.playGameOver()
     while restart == False:
         for event in pygame.event.get():
             if event.type == KEYDOWN:
@@ -80,6 +98,10 @@ while True:
         text.gameovera(DISPLAYSURF)
         text.scorea(DISPLAYSURF)
         text.comboa(DISPLAYSURF)
+        if para.newHS == True:
+            text.newHS(DISPLAYSURF)
+        else:
+            text.ShowHS(DISPLAYSURF,highscore)
         tux.animate(DISPLAYSURF)
         rock.animationDie(DISPLAYSURF)
         pygame.display.update()

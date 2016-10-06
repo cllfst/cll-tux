@@ -18,7 +18,7 @@ class Rock:
         self.taille = 100
         self.rockImg = pygame.transform.scale(self.rockImg, (self.taille, self.taille ))
         self.rockx = -self.taille*2/3
-        self.rocky = param.posy-self.taille
+        self.rocky = param.posy-self.taille - 10
         self.i=0
         self.angle=0
 

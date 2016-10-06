@@ -13,7 +13,7 @@ class Man:
             Args:
                 param(param): An instance from parameters.param class, used to configure the tux's behavior.
         """
-        self.sound = Sound()
+        #self.sound = Sound()
         self.param=param
         self.x=param.posTux[1]# taille tux a modifie
         self.taille=65
@@ -58,7 +58,7 @@ class Man:
         if event.type == KEYDOWN:
             if event.key == K_UP:
                 if self.jump != True:
-                    self.sound.jumps()
+                    #self.sound.jumps()
                     self.jump = True
                     self.hero_moving_counter = 0
 
@@ -92,14 +92,21 @@ class Man:
                     self.hero_moving_counter += 1
                     if self.hero_moving_counter < self.param.framNbPerJump/7:
                         self.hero = self.pingImgJump[0]
-                        self.y -= self.param.vitesse
+                        self.y -= self.param.vitesse*1.5
+                    elif self.hero_moving_counter <= self.param.framNbPerJump/3 :
+                        self.hero = self.pingImgJump[1]
+                        self.y -= self.param.vitesse*1.5
                     elif self.hero_moving_counter <= self.param.framNbPerJump/2 :
                         self.hero = self.pingImgJump[1]
-                        self.y -= self.param.vitesse
+                        self.y -= self.param.vitesse/2
+                    elif self.hero_moving_counter <= self.param.framNbPerJump*2/3 :
+                        self.hero = self.pingImgJump[2]
+                        self.y += self.param.vitesse/2
+
                     else :
                         self.hero = self.pingImgJump[2]
-                        if self.y + self.param.vitesse < self.param.posy :
-                            self.y += self.param.vitesse
+                        if self.y + self.param.vitesse*2 < self.param.posy :
+                            self.y += self.param.vitesse*1.5
                         else:
                             self.y = self.param.posy
 

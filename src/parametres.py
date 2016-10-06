@@ -6,10 +6,11 @@ class Param:
     This class define parameters of the application
     """
     def __init__(self):
-        self.combo = 0
+        self.newHS = False
+        self.combo = 10
         self.comboMax = 10
         self.score = 0
-        self.obsCount =  0
+        self.obsCount =  10
         self.vitesse = 8
         self.vitesseMax = 40
         self.posy = 500
@@ -21,7 +22,7 @@ class Param:
         self.tailleObs = 100
         self.nbObsAdv = 10
         self.tolerateObsHit = 35
-        self.sound = Sound()
+        #self.sound = Sound()
 
     def accelerate(self,aug):
         """

@@ -8,7 +8,7 @@ class Tester:
         self.x = -160
         self.y = 50
         self.img=pygame.image.load(img).convert_alpha()
-        self.img = pygame.transform.scale(self.img, (150, 50))
+        self.img = pygame.transform.scale(self.img, (250, 80))
         self.soundObj = pygame.mixer.Sound('beep.mp3')
         #self.rec = rect(250,250,(20,50),(0,0,255))
     def background(self,screen):
