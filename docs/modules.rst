@@ -10,3 +10,6 @@ src
    obstacle
    parametres
    rock
+   sound
+   test
+   text

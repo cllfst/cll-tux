@@ -14,7 +14,7 @@ class Rock:
             If you want to change the rock image, consider change the file img/boule.png.
         """
         self.param=param
-        self.rockImg = pygame.image.load('img/boule.png')
+        self.rockImg = pygame.image.load('img/boule2.png')
         self.taille = 100
         self.rockImg = pygame.transform.scale(self.rockImg, (self.taille, self.taille ))
         self.rockx = -self.taille*2/3
@@ -40,7 +40,7 @@ class Rock:
         self.i+=1
         # if self.i%10==0 :
         #    self.rockImg=pygame.transform.rotate(self.rockImg,-370)
-        self.angle-=self.param.vitesse
+        self.angle-=self.param.vitesse/2
         # screen.blit(self.rockImg,(self.rockx,self.rocky))
 
         if self.i == 30 and self.taille<200 :
@@ -48,6 +48,13 @@ class Rock:
             self.rocky -= 3
             self.i=0
             self.taille += 3
-            self.rockImg = pygame.image.load('img/boule.png')
+            self.rockImg = pygame.image.load('img/boule2.png')
             self.rockImg = pygame.transform.scale(self.rockImg, (self.taille,self.taille ))
+        screen.blit(pygame.transform.rotate(self.rockImg, self.angle), (self.rockx, self.rocky))
+
+    def animationDie(self, screen):
+        """this method manage the animation of the snow ball when the game is over(loss)
+        """
+        self.rockx += self.param.vitesse
+        self.angle-=self.param.vitesse/2
         screen.blit(pygame.transform.rotate(self.rockImg, self.angle), (self.rockx, self.rocky))
