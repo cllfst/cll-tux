@@ -4,7 +4,8 @@ from sound import *
 
 
 class Text:
-
+    """This Class aims to display all the messages of the game
+    """
     def __init__(self,param):
         self.param = param
         self.i = 0

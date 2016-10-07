@@ -12,10 +12,14 @@ class Tester:
         self.soundObj = pygame.mixer.Sound('beep.mp3')
         #self.rec = rect(250,250,(20,50),(0,0,255))
     def background(self,screen):
+        """display the menu's background
+        """
         bg=pygame.image.load("jll.png").convert_alpha()
         bg = pygame.transform.scale(bg, (self.param.width, self.param.hight))
         screen.blit(bg,(0,0))
     def animate(self,screen):
+        """animate the cll logo in the menu
+        """
         if (self.x >= self.param.width and self.y ==50):
             self.x = -160
             self.y = 420
@@ -24,14 +28,10 @@ class Tester:
             self.y = 50
         self.x+=self.param.vitesse
         screen.blit(self.img,(self.x,self.y))
-        #self.rec.drawRect(screen)
+
     def getEvent(self,event):
         if event.type == KEYDOWN:
-
             self.soundObj.play()
-            #time.sleep(1) # wait and let the sound play for 1 second
-            #soundObj.stop()
-
             if event.key == K_UP:
                 self.y  -= 50;
                 return True

@@ -9,16 +9,8 @@ from backgroun import *
 from sound import *
 from text import *
 
-
-#mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=4096)
 pygame.init()
-#pygame.mixer.init()
-#print pygame.mixer.get_init()
-
-#pygame.mixer.pre_init(44100, 16, 2, 4096)
-#pygame.mixer.init()
-#pygame.init()# should be called to initialise
-bgsong = BgSound()
+bgsong = Sound()
 para = Param()
 DISPLAYSURF = pygame.display.set_mode((para.width, para.hight))# setting the surface and size of window must be a "tuple"=>((,))
 pygame.display.set_caption('CLL TUX,running for freedom!')#title of window

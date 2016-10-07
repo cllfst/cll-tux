@@ -49,14 +49,17 @@ class ObstacleGenerator :
         self.addObstacle()
 
     def addObstacle(self):
+        """add an obstacle randomly using the `randrange()`_ function
+            .. _randrange():
+                https://docs.python.org/3.1/library/random.html#random.randrange
+        """
         obstacleType = randrange(1,4)
         obstacleObject = Obstacle(self.param,obstacleType)
         self.obstacleBuffer.append(obstacleObject)
 
     def randomize(self):
-        #print len(self.obstacleBuffer)
-        #print self.obstacleBuffer[-1].x
-        #print '-%d' % (self.param.width -self.randomDistance)
+        """add an obstacle when the distance between the current place and the last obstacle is bigger than randomDistance
+        """
         if (self.obstacleBuffer[-1].x < (self.param.width -self.randomDistance)):
             self.addObstacle()
             if self.param.vitesse < self.param.vitesseMax:
@@ -64,6 +67,8 @@ class ObstacleGenerator :
             self.randomDistance = randrange(self.minDistance,self.param.width)
 
     def animateObstacles(self, screen):
+        """add, delete obstacles and count the score
+        """
         self.randomize()
         if self.obstacleBuffer[0].out :
             del self.obstacleBuffer[0]
@@ -79,4 +84,6 @@ class ObstacleGenerator :
         # print self.randomDistance
 
     def getObst(self):
+        """returns the first obstacle shown on the screen
+        """
         return self.obstacleBuffer[0]

@@ -4,8 +4,8 @@ src
 .. toctree::
    :maxdepth: 4
 
-   backgroun
    main
+   backgroun
    man
    obstacle
    parametres

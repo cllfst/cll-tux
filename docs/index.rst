@@ -10,8 +10,8 @@ Welcome to cll-tux's documentation!
 .. toctree::
    :maxdepth: 4
 
-   backgroun
    main
+   backgroun
    man
    obstacle
    parametres

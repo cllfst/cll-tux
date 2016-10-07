@@ -19,7 +19,7 @@ class Sound:
         self.jump.play()
 """
 
-class BgSound:
+class Sound:
     def __init__(self):
         pass
 
