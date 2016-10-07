@@ -50,7 +50,8 @@ class ObstacleGenerator :
 
     def addObstacle(self):
         """add an obstacle randomly using the `randrange()`_ function
-            .. _randrange():
+
+        .. _randrange():
                 https://docs.python.org/3.1/library/random.html#random.randrange
         """
         obstacleType = randrange(1,4)
