@@ -13,7 +13,7 @@ class Man:
             Args:
                 param(param): An instance from parameters.param class, used to configure the tux's behavior.
         """
-        #self.sound = Sound()
+        self.sound = Sound()
         self.param=param
         self.x=param.posTux[1]# taille tux a modifie
         self.taille=65
@@ -63,7 +63,7 @@ class Man:
         if event.type == KEYDOWN:
             if event.key == K_UP:
                 if self.jump != True:
-                    #self.sound.jumps()
+                    self.sound.jumps()
                     self.jump = True
                     self.hero_moving_counter = 0
 
@@ -71,11 +71,13 @@ class Man:
         """this method manage the collision of the tux
         """
         if self.x <= obs.x and self.x + self.taille >= obs.x and self.y + self.param.tailleObs > obs.y + self.param.tolerateObsHit and self.indestructible==False :
+            self.sound.hurts()
             if self.x>self.param.posTux[0]:
                 self.y = self.posy
                 self.jump = False
                 self.hurt = True
                 self.param.obsCount=-1
+
             else :
                 self.y = self.posy
                 self.die = True
@@ -114,10 +116,10 @@ class Man:
 
                     else :
                         self.hero = self.pingImgJump[2]
-                        if self.y + self.param.vitesse*2 < self.param.posy :
+                        if self.y + self.param.vitesse*1.5 < self.posy :
                             self.y += self.param.vitesse*1.5
                         else:
-                            self.y = self.param.posy
+                            self.y = self.posy
 
                     if self.hero_moving_counter >= self.param.framNbPerJump :
                         self.hero = self.pingImgWalk[self.img_walk_counter%4]
