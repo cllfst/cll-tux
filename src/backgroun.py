@@ -15,7 +15,7 @@ class Background1:#far background
         self.img=pygame.image.load("img/A1.png")
         self.img = pygame.transform.scale(self.img, (param.width, param.hight))
     def affichebg(self,screen):
-	       screen.blit(self.img,(self.x,self.y))
+	    screen.blit(self.img,(self.x,self.y))
 
 
 
@@ -31,6 +31,7 @@ class Background2:#closee background
         self.img = pygame.transform.scale(self.img, (2600, param.hight))
 
     def affichebg(self,screen):
+
         screen.blit(self.img,(self.x,self.y))
     	self.x-= self.param.vitesse/3
     	if self.x<-1500:

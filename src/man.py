@@ -55,6 +55,11 @@ class Man:
         self.indestructible = False
 
     def getEvent(self, event):
+        """this method aims to receive the key clicked by the user
+
+        Args:
+            event: the event clicked
+        """
         if event.type == KEYDOWN:
             if event.key == K_UP:
                 if self.jump != True:
@@ -63,6 +68,8 @@ class Man:
                     self.hero_moving_counter = 0
 
     def collision(self, obs):
+        """this method manage the collision of the tux
+        """
         if self.x <= obs.x and self.x + self.taille >= obs.x and self.y + self.param.tailleObs > obs.y + self.param.tolerateObsHit and self.indestructible==False :
             if self.x>self.param.posTux[0]:
                 self.y = self.posy
@@ -78,6 +85,8 @@ class Man:
         return False
 
     def animate(self,screen):
+        """this method manage the animation of the tux
+        """
         if self.die == False :
             if self.hurt == False :
                 if self.param.obsCount >= self.param.nbObsAdv and self.x < self.param.posTux[1]:

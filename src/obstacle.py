@@ -2,12 +2,20 @@ import pygame, sys
 from pygame.locals import *
 from random import randrange
 
+"""
+This Module aims to accelerate the game and count score based on obstacles
+"""
 #accelerates the game and count score based on obstacles
 class Obstacle:
     """
-    This class aims to accelerate the game and count score based on obstacles
+    This class aims to create an obstacle
     """
     def __init__(self,param,type=1):# list image et l'obstacle est choisie a l'aleatoire
+        """
+        Args:
+            param(parameters.param): An instance from parameters.param class, used to configure the Obstacle's behavior.
+            type: between 1 and 3, it selects the type of the obstacle
+        """
         self.param = param
         self.x = param.width + 50
         self.y = param.posy - 70
@@ -21,12 +29,16 @@ class Obstacle:
         self.out = False
 
     def animate(self,screen):
+        """ this method manage the animation of the obstacle and detect when its position surpass the screen's weight
+        """
         self.x -= self.param.vitesse
         screen.blit(self.img,(self.x,self.y))
         if self.x < 0 :
            self.out = True
 
 class ObstacleGenerator :
+    """this class aims to create obstacles
+    """
 
     def __init__(self,param,minDist=210,max=2):
         self.param = param

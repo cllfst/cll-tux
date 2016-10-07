@@ -26,7 +26,7 @@ class BgSound:
     def playStartSong(self):
         pygame.mixer.music.load('sfd.ogg')
         pygame.mixer.music.set_volume(1)
-        pygame.mixer.music.play(-1, 0.0)
+        pygame.mixer.music.play(-1, 27.0)
 
     def playBgSong(self):
         pygame.mixer.music.load('bgSong.mp3')
