@@ -33,9 +33,9 @@ class Background2:#closee background
     def affichebg(self,screen):
 
         screen.blit(self.img,(self.x,self.y))
-    	self.x-= self.param.vitesse/3
-    	if self.x<-1500:
-    		self.x=0
+        self.x-= self.param.vitesse/3
+        if self.x<-1500:
+            self.x=0
     def affichebgDie(self,screen):
         screen.blit(self.img,(self.x,self.y))
 

@@ -9,7 +9,7 @@ class Tester:
         self.y = 50
         self.img=pygame.image.load(img).convert_alpha()
         self.img = pygame.transform.scale(self.img, (250, 80))
-        self.soundObj = pygame.mixer.Sound('beep.mp3')
+        self.soundObj = pygame.mixer.Sound('beep.ogg')
         #self.rec = rect(250,250,(20,50),(0,0,255))
     def background(self,screen):
         """display the menu's background
@@ -40,10 +40,10 @@ class Tester:
                 self.y  += 50;
 
     def backgroundsound(self):
-        pygame.mixer.music.load('MyImmortal.mp3')
+        pygame.mixer.music.load('MyImmortal.ogg')
         pygame.mixer.music.play(-1, 0.0)
     def beepsound(self):
-        soundObj = pygame.mixer.Sound('beep.mp3')
+        soundObj = pygame.mixer.Sound('beep.ogg')
         soundObj.play()
 
         time.sleep(1) # wait and let the sound play for 1 second

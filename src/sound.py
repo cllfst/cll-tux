@@ -16,7 +16,7 @@ class Sound:
         pygame.mixer.music.play(-1, 27.0)
 
     def playBgSong(self):
-        pygame.mixer.music.load('bgSong.mp3')
+        pygame.mixer.music.load('bgSong.ogg')
         pygame.mixer.music.set_volume(1)
         pygame.mixer.music.play(-1, 0.0)
 
@@ -24,12 +24,12 @@ class Sound:
         pygame.mixer.music.stop()
 
     def playGameOver(self):
-        pygame.mixer.music.load('Death.mp3')
+        pygame.mixer.music.load('Death.ogg')
         pygame.mixer.music.set_volume(1)
         pygame.mixer.music.play(1, 0.0)
 
     def playGameOverHS(self):
-        pygame.mixer.music.load('winHS.mp3')
+        pygame.mixer.music.load('winHS.ogg')
         pygame.mixer.music.set_volume(1)
         pygame.mixer.music.play(1, 0.0)
 
